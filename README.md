@@ -92,3 +92,13 @@ or,
 Now, your server setup is all ready, now hit your domain name or IP to install Magento 2.
 
 Now to configure Varnish for Magento 2 and test its working, please refer to blog https://cloudkul.com/blog/magento-2-and-varnish-cache-integration-with-docker-compose/.
+
+After configuring Magento 2 for Varnish, go to varnish docker container as
+
+> docker exec -ti varnish bash
+
+And run the command,
+
+> varnishhist
+
+
