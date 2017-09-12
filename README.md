@@ -49,11 +49,11 @@ Then follow the following steps:
 
 > git clone https://github.com/webkul/magento2-varnish-docker-compose.git
 
-2) Set/modify mysql root credentials. Go to ~/magento2-docker-compose/docker-compose.yml and change mysql root password in database_server in:
+2) Set/modify mysql root credentials. Go to ~/magento2-varnish-docker-compose/docker-compose.yml and change mysql root password in database_server in:
 
 > mysql_password=rootpassword123
 
-3). Modify change database name, database user and mysql root credentials in ~/magento2-docker-compose/database_server/mysql.sh in:
+3). Modify change database name, database user and mysql root credentials in ~/magento2-varnish-docker-compose/database_server/mysql.sh in:
 
 > database_name=magento_db           ## Mention database name
 
