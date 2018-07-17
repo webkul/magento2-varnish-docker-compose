@@ -29,19 +29,17 @@ Magento 2 works out of box with Varnish Cache and provides its own VCL file for 
 
 In this project, we are using:
 
-> Operating system: Ubuntu 14.04
+> Operating system: Ubuntu 16.04
 
 > Web Server: Apache2
 
-> Database Server: Mysql-server-5.6
+> Database Server: Mysql-server-5.7
 
-> Cache Server: Varnish 3.0.5
+> Cache Server: Varnish 4.1
 
-> PHP version: PHP-7.0
+> PHP version: PHP-7.1
 
-> Magento 2.1.6
-
-To begin with, please install docker and docker-compose on your ubuntu 14.04 server. 
+To begin with, please install docker and docker-compose on your ubuntu server. 
 
 Then follow the following steps:
 
@@ -49,17 +47,15 @@ Then follow the following steps:
 
 > git clone https://github.com/webkul/magento2-varnish-docker-compose.git
 
-2) Set/modify mysql root credentials. Go to ~/magento2-varnish-docker-compose/docker-compose.yml and change mysql root password in database_server in:
+2) Set mysql root credentials and name of the database to be created in ~/magento2-varnish-docker-compose/docker-compose.yml.
 
-> mysql_password=rootpassword123
+> mysql_password=
 
-3). Modify change database name, database user and mysql root credentials in ~/magento2-varnish-docker-compose/database_server/mysql.sh in:
+> mysql_database=
 
-> database_name=magento_db           ## Mention database name
+3). Download Magento 2 version you wish to dockerize and upload it in directory magento2 in parallel docker-compose.yml.
 
-> database_user=magento_user         ## Mention database user
-
-> database_root_password=rootpassword123    ## Mention mysql root password.
+> Go to https://magento.com/tech-resources/download? .
 
 4). Build the docker image.
 
@@ -79,16 +75,6 @@ Then follow the following steps:
 
 > docker ps
 
-8). Your database credentials are mentioned in mysql.sh file. Database user password will be randomly generated. Database user password will be stored in /var/log/check.log. To get database user password,
-
-> docker exec -ti mysql bash
- 
-> cat /var/log/check.log
- 
-or,
-
-> docker exec -i mysql cat /var/log/check.log
-
 Now, your server setup is all ready, now hit your domain name or IP to install Magento 2.
 
 Now to configure Varnish for Magento 2 and test its working, please refer to blog https://cloudkul.com/blog/magento-2-and-varnish-cache-integration-with-docker-compose/.
@@ -101,4 +87,6 @@ And run the command,
 
 > varnishhist
 
-If you face any issues, kindly report back.
+#### GETTING SUPPORT
+
+If you have any issues, contact us at support@webkul.com or raise ticket at https://webkul.uvdesk.com/
